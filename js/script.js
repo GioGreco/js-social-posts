@@ -175,7 +175,7 @@ likeBtn.forEach((btn) => {
                    likeCounterHTML[btnID - 1].innerHTML = `${value.likes + 1}`;
                 }
             else if(btnID === value.id && likedPosts.includes(value)){
-                    likedPosts.splice(btnID - 1, 1);
+                    likedPosts.splice(likedPosts.indexOf(value), 1);
                     likeCounterHTML[btnID - 1].innerHTML = `${value.likes}`;
                 }
             })
