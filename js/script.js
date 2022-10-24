@@ -87,6 +87,11 @@ function displayPosts(){
     const initials = getNameInitials(value.author.name);
     console.log(initials);
 
+    const formatYYYYMMDD = value.created.replace(/-/g, '');
+    console.log(formatYYYYMMDD);
+    const parsedDate = moment(formatYYYYMMDD, "YYYYMMDD").fromNow();
+    console.log(parsedDate);
+
     if(!(value.author.image == null)){
         post.innerHTML = `
         <div class="post__header">
@@ -96,7 +101,7 @@ function displayPosts(){
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${value.author.name}</div>
-                    <div class="post-meta__time">${value.created}</div>
+                    <div class="post-meta__time">${parsedDate}</div>
                 </div>                    
             </div>
         </div>
@@ -130,7 +135,7 @@ function displayPosts(){
             </div>                    
             <div class="post-meta__data">
                 <div class="post-meta__author">${value.author.name}</div>
-                <div class="post-meta__time">${value.created}</div>
+                <div class="post-meta__time">${parsedDate}</div>
             </div>                    
         </div>
     </div>
